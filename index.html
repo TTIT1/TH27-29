@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Thi Trắc Nghiệm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Ôn Thi Trắc Nghiệm</h1>
+        <div class="quiz-info">
+            <span class="quiz-progress">Câu hỏi: <span id="currentQuestion">1</span>/<span id="totalQuestions">0</span></span>
+            <span class="quiz-timer">Thời gian: <span id="time">00:00</span></span>
+        </div>
+        <div class="quiz-container">
+            <div class="progress">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div id="question-container">
+                <!-- Câu hỏi sẽ được hiển thị ở đây -->
+            </div>
+            <div class="controls">
+                <button id="prev-btn">← Câu trước</button>
+                <button id="next-btn">Câu tiếp →</button>
+            </div>
+            <div id="result" class="result"></div>
+            <div class="right-column">
+                <div class="question-navigation">
+                    <h3>Mục lục câu hỏi</h3>
+                    <div id="question-grid" class="question-grid">
+                        <!-- Question numbers will be injected here by JavaScript -->
+                    </div>
+                    <div class="navigation-buttons">
+                        <button id="prev-btn" class="nav-button">← Trước</button>
+                        <button id="next-btn" class="nav-button">Sau →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/questions.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 
