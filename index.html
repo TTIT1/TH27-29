@@ -6,6 +6,9 @@
     <title>Thế Trường </title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
 </head>
 <body>
     <div class="container">
@@ -25,6 +28,7 @@
             <div class="controls">
                 <button id="prev-btn">← Câu trước</button>
                 <button id="next-btn">Câu tiếp →</button>
+                <button id="submit-btn">Nộp bài</button>
             </div>
             <div id="result" class="result"></div>
             <div class="right-column">
@@ -33,16 +37,12 @@
                     <div id="question-grid" class="question-grid">
                         <!-- Question numbers will be injected here by JavaScript -->
                     </div>
-                    <div class="navigation-buttons">
-                        <button id="prev-btn" class="nav-button">← Trước</button>
-                        <button id="next-btn" class="nav-button">Sau →</button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="js/questions.js"></script>
-    <script src="js/app.js"></script>
+    <!-- Script tags at the end of body -->
     <script src="js/typing_effect.js"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html> 

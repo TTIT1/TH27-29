@@ -123,9 +123,18 @@
             <button type="submit">Đăng nhập</button>
             <p id="errorMessage" class="error-message">Câu trả lời không chính xác!</p>
         </form>
+
+        <div class="shuffle-controls" style="text-align: center; margin-top: 20px;">
+            <button id="shuffle-options-login-btn" style="width: 48%; margin-right: 2%;">Đảo đáp án</button>
+            <button id="shuffle-questions-login-btn" style="width: 48%;">Đảo câu hỏi</button>
+        </div>
+
     </div>
 
-    <script>
+    <script type="module">
+        import questionsData from './js/questions.js';
+        import { shuffleArray, shuffleOptions } from './js/utils.js';
+
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const answer = document.getElementById('answer').value.trim();
@@ -137,6 +146,34 @@
             } else {
                 document.getElementById('errorMessage').style.display = 'block';
             }
+        });
+
+        const shuffleOptionsLoginBtn = document.getElementById('shuffle-options-login-btn');
+        const shuffleQuestionsLoginBtn = document.getElementById('shuffle-questions-login-btn');
+
+        shuffleOptionsLoginBtn.addEventListener('click', () => {
+            let questionsToShuffle = [];
+            const storedQuestions = localStorage.getItem('shuffledQuestions');
+            if (storedQuestions) {
+                try {
+                    questionsToShuffle = JSON.parse(storedQuestions);
+                } catch (e) {
+                    console.error("Error parsing shuffled questions from localStorage:", e);
+                    questionsToShuffle = [...questionsData];
+                }
+            } else {
+                questionsToShuffle = [...questionsData];
+            }
+
+            const shuffledQuestionsWithOptions = questionsToShuffle.map(question => shuffleOptions(question));
+            localStorage.setItem('shuffledQuestions', JSON.stringify(shuffledQuestionsWithOptions));
+            alert('Đã đảo ngẫu nhiên đáp án của tất cả các câu hỏi!');
+        });
+
+        shuffleQuestionsLoginBtn.addEventListener('click', () => {
+            const shuffledQuestions = shuffleArray([...questionsData]); // Luôn đảo từ bộ gốc
+            localStorage.setItem('shuffledQuestions', JSON.stringify(shuffledQuestions));
+            alert('Đã đảo ngẫu nhiên thứ tự tất cả các câu hỏi!');
         });
     </script>
 </body>
