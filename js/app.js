@@ -1,327 +1,192 @@
-import questionsData from './questions.js'; // Đổi tên import để tránh trùng tên biến
-import { trackUserSession, trackQuizCompletion, trackQuestionInteraction } from './firebase-config.js';
-import { shuffleArray, shuffleOptions } from './utils.js'; // Import từ utils.js
+// Xử lý đăng nhập
+const PASSWORD = 'VIP2025';
+const loginSection = document.getElementById('login-section');
+const quizSection = document.getElementById('quiz-section');
+const loginBtn = document.getElementById('login-btn');
+const passwordInput = document.getElementById('password-input');
+const loginError = document.getElementById('login-error');
 
-// ===================================
-// GLOBAL VARIABLES (Khai báo biến toàn cục)
-// ===================================
-let questions = []; // Mảng câu hỏi hiện tại (có thể đã đảo)
-let originalQuestions = [...questionsData]; // Luôn lưu trữ câu hỏi gốc không đảo
-
-// Các biến trạng thái của Quiz
-let currentQuestion = 0;
-let userAnswers = []; // Sẽ khởi tạo lại kích thước khi questions được tải
-let correctAnswersCount = 0;
-let incorrectQuestions = [];
-let timerInterval;
-let startTime = new Date();
-
-// Khai báo các biến DOM (sẽ được gán giá trị trong DOMContentLoaded)
-let totalQuestionsSpan;
-let currentQuestionSpan;
-let timeElement;
-let resultDiv;
-let prevButton;
-let nextButton;
-let questionContainer;
-let questionGrid;
-let submitButton;
-
-// ===================================
-// FUNCTIONS (Định nghĩa tất cả các hàm trước)
-// ===================================
-
-function formatTime(seconds) {
-    const h = Math.floor(seconds / 3600);
-    const m = Math.floor((seconds % 3600) / 60);
-    const s = Math.floor(seconds % 60);
-    return [h, m, s]
-        .map(v => v < 10 ? "0" + v : v)
-        .filter((v, i) => v !== "00" || i > 0)
-        .join(":");
-}
-
-function updateProgress() {
-    const progressBar = document.getElementById('progress-bar');
-    if (questions.length === 0) {
-        progressBar.style.width = '0%';
-        currentQuestionSpan.textContent = '0';
-        totalQuestionsSpan.textContent = '0';
-        return;
+loginBtn.onclick = function() {
+    if (passwordInput.value === PASSWORD) {
+        loginSection.style.display = 'none';
+        quizSection.style.display = 'block';
+        showReadyScreen();
+    } else {
+        loginError.style.display = 'block';
     }
-    const progress = ((currentQuestion + 1) / questions.length) * 100;
-    progressBar.style.width = `${progress}%`;
-    currentQuestionSpan.textContent = currentQuestion + 1;
-    totalQuestionsSpan.textContent = questions.length;
-}
+};
 
-function generateQuestionGrid() {
-    questionGrid.innerHTML = '';
-    questions.forEach((_, index) => {
-        const questionNumberDiv = document.createElement('div');
-        questionNumberDiv.classList.add('question-number');
-        if (index === currentQuestion) {
-            questionNumberDiv.classList.add('active');
-        } else if (userAnswers[index] !== null) {
-            questionNumberDiv.classList.add('answered');
-        }
-        questionNumberDiv.textContent = index + 1;
-        questionNumberDiv.addEventListener('click', () => {
-            jumpToQuestion(index);
-        });
-        questionGrid.appendChild(questionNumberDiv);
-    });
-}
-
-function jumpToQuestion(index) {
-    currentQuestion = index;
-    displayQuestion();
-    generateQuestionGrid();
-}
-
-function updateTimer() {
-    const now = new Date();
-    const diff = (now - startTime) / 1000;
-    timeElement.textContent = formatTime(diff);
-    updateProgress();
-    updateNavigationButtons();
-    generateQuestionGrid();
-}
-
-function displayQuestion(feedback = false) {
-    const question = questions[currentQuestion];
-
-    if (!question || typeof question.question !== 'string' || !Array.isArray(question.options) || question.options.length === 0) {
-        console.error("Lỗi: Đối tượng câu hỏi không hợp lệ hoặc thiếu thuộc tính cần thiết.", question);
-        questionContainer.innerHTML = "<p>Đã xảy ra lỗi khi tải câu hỏi. Vui lòng kiểm tra console để biết thêm chi tiết.</p>";
-        return;
+// Đảo mảng (Fisher-Yates)
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
     }
-    console.log("Đang hiển thị câu hỏi:", currentQuestion + 1, question);
-    
-    let html = `
-        <div class="question">
-            <h2 class="question-text">Câu ${currentQuestion + 1}: ${question.question}</h2>
-            <ul class="options">
-    `;
-    
-    question.options.forEach((option, index) => {
-        const optionId = `q${currentQuestion}-option${index}`;
-        let liClasses = ['option'];
-        let checked = '';
-        let isDisabled = feedback ? 'disabled' : '';
+}
 
-        if (feedback) {
-            if (index === question.correctAnswer) {
-                liClasses.push('correct');
-            } else if (userAnswers[currentQuestion] === index) {
-                liClasses.push('incorrect');
-            }
-        } else {
-            if (userAnswers[currentQuestion] === index) {
-                checked = 'checked';
-            }
-        }
+let quizQuestions = [];
+let shuffled = false;
 
-        html += `
-            <li class="${liClasses.join(' ')}">
-                <input type="radio" id="${optionId}" name="question${currentQuestion}" value="${index}" ${checked} ${isDisabled}>
-                <label for="${optionId}">${option}</label>
-            </li>
-        `;
-    });
-    
-    html += `
-            </ul>
+function showReadyScreen() {
+    // Copy câu hỏi và đáp án gốc
+    quizQuestions = questions.map(q => ({
+        ...q,
+        shuffledOptions: q.options.slice(),
+        shuffledAnswer: q.correctAnswer
+    }));
+    shuffled = false;
+    quizSection.innerHTML = `
+        <div class="quiz-container" style="max-width:600px;margin:auto;">
+            <h2>Chuẩn bị làm bài</h2>
+            <p>Bạn có thể đảo cả thứ tự câu hỏi và đáp án trước khi bắt đầu.</p>
+            <div style="display:flex;gap:10px;justify-content:center;margin:20px 0;">
+                <button id="shuffle-all-btn">Đảo câu hỏi & đáp án</button>
+                <button id="start-quiz-btn">Bắt đầu</button>
+            </div>
         </div>
     `;
-    
-    questionContainer.innerHTML = html;
-    updateProgress();
-    updateNavigationButtons();
-    generateQuestionGrid();
+    document.getElementById('shuffle-all-btn').onclick = () => {
+        shuffle(quizQuestions); // Đảo thứ tự câu hỏi
+        quizQuestions.forEach(q => {
+            let opts = q.options.map((opt, idx) => ({opt, idx}));
+            shuffle(opts);
+            q.shuffledOptions = opts.map(o => o.opt);
+            q.shuffledAnswer = opts.findIndex(o => o.idx === q.correctAnswer);
+        });
+        shuffled = true;
+        alert('Đã đảo cả câu hỏi và đáp án!');
+    };
+    document.getElementById('start-quiz-btn').onclick = () => {
+        renderQuiz(quizQuestions);
+    };
+}
 
-    if (!feedback) {
-        const radios = questionContainer.querySelectorAll('input[type="radio"]');
-        radios.forEach(radio => {
-            radio.onchange = () => selectAnswer(parseInt(radio.value));
+function renderQuiz(quizQuestions, onlyWrong = false) {
+    let current = 0;
+    let userAnswers = Array(quizQuestions.length).fill(null);
+    let locked = Array(quizQuestions.length).fill(false);
+    quizSection.innerHTML = `
+        <div class="quiz-container">
+            <div class="quiz-info">
+                <span class="quiz-progress">Câu <span id="current-q">1</span> / ${quizQuestions.length}</span>
+            </div>
+            <div id="question-box"></div>
+            <div class="controls">
+                <button id="prev-btn" disabled>Trước</button>
+                <button id="next-btn">Sau</button>
+                <button id="submit-btn">Nộp bài</button>
+            </div>
+        </div>
+        <div class="question-navigation">
+            <h3>Chọn câu hỏi</h3>
+            <div class="question-grid">
+                ${quizQuestions.map((_, i) => `<button class="question-number" id="qnav-${i}">${i+1}</button>`).join('')}
+            </div>
+        </div>
+    `;
+    const questionBox = document.getElementById('question-box');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const currentQ = document.getElementById('current-q');
+    let autoNextTimeout = null;
+
+    function showQuestion(idx) {
+        currentQ.textContent = idx + 1;
+        const q = quizQuestions[idx];
+        let optsHtml = q.shuffledOptions.map((opt, i) => {
+            let cls = '';
+            if (locked[idx]) {
+                if (i === userAnswers[idx]) {
+                    cls = (i === q.shuffledAnswer) ? 'correct' : 'incorrect';
+                }
+                if (i === q.shuffledAnswer && userAnswers[idx] !== q.shuffledAnswer) {
+                    cls = 'correct';
+                }
+            } else if (userAnswers[idx] === i) {
+                cls = 'user-selected';
+            }
+            return `<li class="option${cls ? ' ' + cls : ''}" data-idx="${i}">
+                <input type="radio" name="option" id="opt${i}" ${userAnswers[idx] === i ? 'checked' : ''} ${locked[idx] ? 'disabled' : ''}>
+                <label for="opt${i}">${opt}</label>
+            </li>`;
+        }).join('');
+        questionBox.innerHTML = `
+            <div class="question">
+                <div class="question-text">${q.question}</div>
+                <ul class="options">${optsHtml}</ul>
+            </div>
+        `;
+        // Bắt sự kiện chọn đáp án
+        if (!locked[idx]) {
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.onclick = function() {
+                    if (locked[idx]) return;
+                    const selected = parseInt(opt.getAttribute('data-idx'));
+                    userAnswers[idx] = selected;
+                    locked[idx] = true;
+                    showQuestion(idx);
+                    // Tự động chuyển câu sau 2 giây
+                    if (autoNextTimeout) clearTimeout(autoNextTimeout);
+                    autoNextTimeout = setTimeout(() => {
+                        if (current < quizQuestions.length - 1) {
+                            current++;
+                            showQuestion(current);
+                        }
+                    }, 2000);
+                };
+            });
+        }
+        prevBtn.disabled = idx === 0;
+        nextBtn.disabled = idx === quizQuestions.length - 1;
+        // Highlight câu hiện tại trong navigation
+        quizQuestions.forEach((_, i) => {
+            const btn = document.getElementById(`qnav-${i}`);
+            if (btn) {
+                btn.classList.toggle('active', i === idx);
+                btn.disabled = false;
+            }
         });
     }
 
-    if (feedback) {
-        setTimeout(() => {
-            nextQuestion();
-        }, 2000);
-    }
-    trackQuestionInteraction(currentQuestion + 1, 'question_viewed');
-}
-
-function selectAnswer(index) {
-    if (userAnswers[currentQuestion] !== null) return;
-
-    userAnswers[currentQuestion] = index;
-    const question = questions[currentQuestion];
-
-    if (index === question.correctAnswer) {
-        correctAnswersCount++;
-    } else {
-        incorrectQuestions.push(currentQuestion);
-    }
-    
-    displayQuestion(true);
-    trackQuestionInteraction(currentQuestion + 1, 'answer_selected');
-}
-
-function updateNavigationButtons() {
-    prevButton.disabled = currentQuestion === 0;
-    if (currentQuestion === questions.length - 1) {
-        nextButton.textContent = 'Hoàn thành';
-        nextButton.onclick = submitQuiz;
-        submitButton.style.display = 'inline-block';
-    } else {
-        nextButton.textContent = 'Câu tiếp →';
-        nextButton.onclick = () => nextQuestion();
-        submitButton.style.display = 'none';
-    }
-}
-
-function nextQuestion() {
-    if (currentQuestion < questions.length - 1) {
-        currentQuestion++;
-        displayQuestion();
-    } else {
-        submitQuiz();
-    }
-}
-
-function prevQuestion() {
-    if (currentQuestion > 0) {
-        currentQuestion--;
-        displayQuestion();
-    }
-}
-
-function submitQuiz() {
-    clearInterval(timerInterval);
-    const endTime = new Date();
-    const timeSpent = (endTime - startTime) / 1000;
-    
-    correctAnswersCount = 0;
-    incorrectQuestions = [];
-    
-    questions.forEach((question, index) => {
-        if (userAnswers[index] === question.correctAnswer) {
-            correctAnswersCount++;
-        } else {
-            incorrectQuestions.push(index + 1);
+    // Navigation buttons
+    quizQuestions.forEach((_, i) => {
+        const btn = document.getElementById(`qnav-${i}`);
+        if (btn) {
+            btn.onclick = () => {
+                current = i;
+                showQuestion(current);
+            };
         }
     });
-    
-    const score = (correctAnswersCount / questions.length) * 100;
-    
-    trackQuizCompletion(score, questions.length, timeSpent);
-    
-    resultDiv.innerHTML = `
-        <h2>Kết quả</h2>
-        <p>Điểm số: ${score.toFixed(2)}%</p>
-        <p>Số câu đúng: ${correctAnswersCount}/${questions.length}</p>
-        <p>Thời gian làm bài: ${formatTime(timeSpent)}</p>
-        ${incorrectQuestions.length > 0 ? `<p>Các câu sai: ${incorrectQuestions.join(', ')}</p>` : ''}
-        <button id="restartQuizBtn">Làm lại toàn bộ</button>
-        <button id="retakeWrongBtn">Làm lại câu sai</button>
-    `;
-    
-    prevButton.style.display = 'none';
-    nextButton.style.display = 'none';
-    submitButton.style.display = 'none';
 
-    document.getElementById('retakeWrongBtn').addEventListener('click', retakeWrongQuestions);
-    document.getElementById('restartQuizBtn').addEventListener('click', restartQuiz);
-}
-
-function retakeWrongQuestions() {
-    if (incorrectQuestions.length === 0) {
-        alert('Bạn đã trả lời đúng tất cả các câu hỏi!');
-        return;
-    }
-    const wrongQuestionsData = incorrectQuestions.map(index => originalQuestions[index - 1]);
-    questions.splice(0, questions.length, ...wrongQuestionsData);
-    resetQuiz();
-}
-
-function restartQuiz() {
-    questions = [...originalQuestions];
-    resetQuiz();
-}
-
-function resetQuiz() {
-    currentQuestion = 0;
-    userAnswers = new Array(questions.length).fill(null);
-    correctAnswersCount = 0;
-    incorrectQuestions = [];
-    startTime = new Date();
-    clearInterval(timerInterval);
-    timerInterval = setInterval(updateTimer, 1000);
-    prevButton.style.display = 'inline-block';
-    nextButton.style.display = 'inline-block';
-    submitButton.style.display = 'inline-block'; 
-    questions = [...originalQuestions];
-    generateQuestionGrid();
-    displayQuestion();
-}
-
-// ===================================
-// INITIALIZATION AND EVENT LISTENERS
-// ===================================
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Kiểm tra đăng nhập (đặt ở đây để đảm bảo DOM sẵn sàng trước khi chuyển hướng)
-    if (!sessionStorage.getItem('isLoggedIn')) {
-        window.location.href = 'login.html';
-        return; // Dừng thực thi nếu chưa đăng nhập
-    }
-
-    // Gán các biến DOM sau khi tài liệu đã được tải
-    totalQuestionsSpan = document.getElementById('totalQuestions');
-    currentQuestionSpan = document.getElementById('currentQuestion');
-    timeElement = document.getElementById('time');
-    resultDiv = document.getElementById('result');
-    prevButton = document.getElementById('prev-btn');
-    nextButton = document.getElementById('next-btn');
-    questionContainer = document.getElementById('question-container');
-    questionGrid = document.getElementById('question-grid');
-    submitButton = document.getElementById('submit-btn');
-
-    // Bắt đầu theo dõi phiên người dùng (đặt ở đây để đảm bảo DOM sẵn sàng)
-    trackUserSession();
-
-    // Tải câu hỏi từ localStorage hoặc sử dụng mặc định ban đầu
-    const storedQuestions = localStorage.getItem('shuffledQuestions');
-    if (storedQuestions) {
-        try {
-            questions = JSON.parse(storedQuestions);
-        } catch (e) {
-            console.error("Error parsing shuffled questions from localStorage:", e);
-            questions = [...originalQuestions]; // Fallback to original if parsing fails
+    prevBtn.onclick = () => { if (current > 0) { current--; showQuestion(current); } };
+    nextBtn.onclick = () => { if (current < quizQuestions.length - 1) { current++; showQuestion(current); } };
+    submitBtn.onclick = () => {
+        let correct = 0;
+        let wrong = [];
+        quizQuestions.forEach((q, i) => {
+            if (userAnswers[i] === q.shuffledAnswer) correct++;
+            else wrong.push(i);
+        });
+        quizSection.innerHTML = `
+            <div class="final-result-container">
+                <h2>Kết quả</h2>
+                <p>Bạn đúng ${correct} / ${quizQuestions.length} câu.</p>
+                ${wrong.length ? `<p>Câu sai: ${wrong.map(i=>i+1).join(', ')}</p>` : '<p>Xuất sắc! Bạn làm đúng hết!</p>'}
+                <button onclick="location.reload()">Làm lại tất cả</button>
+                ${wrong.length ? '<button id="retakeWrongBtn">Làm lại câu sai</button>' : ''}
+            </div>
+        `;
+        if (wrong.length) {
+            document.getElementById('retakeWrongBtn').onclick = () => {
+                // Chỉ lấy lại các câu sai
+                const wrongQuestions = wrong.map(i => quizQuestions[i]);
+                renderQuiz(wrongQuestions, true);
+            };
         }
-    } else {
-        questions = [...originalQuestions]; // Sử dụng câu hỏi mặc định nếu không có trong localStorage
-    }
+    };
+    showQuestion(current);
+}
 
-    // Khởi tạo userAnswers sau khi biết questions.length cuối cùng
-    userAnswers = new Array(questions.length).fill(null);
-
-    // Cập nhật tổng số câu hỏi
-    totalQuestionsSpan.textContent = questions.length;
-
-    // Khởi tạo hiển thị quiz
-    generateQuestionGrid();
-    displayQuestion();
-
-    // Bắt đầu hẹn giờ
-    timerInterval = setInterval(updateTimer, 1000);
-
-    // Event listeners cho các nút điều hướng chính
-    document.getElementById('next-btn').addEventListener('click', nextQuestion);
-    document.getElementById('prev-btn').addEventListener('click', prevQuestion);
-    document.getElementById('submit-btn').addEventListener('click', submitQuiz);
-}); 
+window.questions = questions; 

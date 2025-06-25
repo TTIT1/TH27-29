@@ -1,904 +1,1235 @@
 const questions = [
     {
-        question: "IoT tiến hóa từ sự hội tụ của các công nghệ nào?",
+        question: "Dữ liệu của Big Data là loại nào ?",
         options: [
-            "Công nghệ không dây, hệ thống vi cơ điện tử và Internet",
-            "Điện toán di động, dữ liệu lớn và internet",
-            "Công nghệ không dây, trí tuệ nhân tạo và dữ liệu lớn",
-            "Cảm biến, điện toán đám mây và công nghệ máy học"
-        ],
-        correctAnswer: 0
-    },
-    {
-        question: "IoT phải có 2 thuộc tính nào sau đây?",
-        options: [
-            "Phải có là ứng dụng internet và lấy được thông tin vật chủ",
-            "Phải có cảm biến và kết nối bluetooth",
-            "Phải có trao đổi dữ liệu và phân tích hệ thống",
-            "Không có câu trả lời nào đúng"
-        ],
-        correctAnswer: 0
-    },
-    {
-        question: "Người được gọi là cha đẻ của IoT là ai?",
-        options: [
-            "Kevin Ashton",
-            "Vinton Gray Cerf",
-            "Satoshi Nakamoto",
-            "Hal Finney"
-        ],
-        correctAnswer: 0
-    },
-    {
-        question: "Các công nghệ nào được sử dụng trong IoT?",
-        options: [
-            "RFID",
-            "Bluetooth",
-            "Wifi",
+            "Structured Data",
+            "Semi-Structured Data", 
+            "Unstructured Data",
             "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
     },
     {
-        question: "Các thiết bị IoT trong nhà giúp ích trong việc nào sau đây?",
+        question: "Đăc trưng nào không phải của Big Data",
         options: [
-            "Tự động hóa",
-            "Tiết kiệm năng lượng",
-            "An toàn và bảo mật",
-            "Tất cả các câu trả lời là chính xác"
+            "Volume",
+            "Variety",
+            "Vision",
+            "Velocity"
         ],
-        correctAnswer: 3
+        correctAnswer: 2 // Index 2 corresponds to "Vision"
     },
     {
-        question: "Một số tính năng mà ô tô thông minh có thể cung cấp là gì?",
+        question: "NoSQL là ?",
         options: [
-            "Xác định vị trí các điểm đỗ xe có sẵn",
-            "Gọi dịch vụ khẩn cấp trong trường hợp xảy ra tai nạn",
-            "Tự lái xe",
-            "Tất cả các tùy chọn đều đúng"
+            "Database",
+            "Field",
+            "Document",
+            "Collection"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Database"
     },
     {
-        question: "Giao thông công cộng được hưởng lợi như thế nào từ internet vạn vật?",
+        question: "Mục tiêu của NoSQL là gì?",
         options: [
-            "Thông tin từ các thiết bị được kết nối với nhau được sử dụng để cải thiện chất lượng và bảo mật",
-            "Nếu tất cả ô tô cá nhân đều có IoT, thì phương tiện giao thông công cộng không còn cần thiết nữa",
-            "IoT làm giảm nhu cầu giao thông công cộng trong giờ cao điểm",
-            "Thông tin từ các thiết bị được kết nối với nhau được sử dụng để cung cấp dịch vụ được cá nhân hóa"
+            "NoSQL cung cấp một giải pháp thay thế cho cơ sở dữ liệu SQL để lưu trữ dữ liệu dạng văn bản.",
+            "Cơ sở dữ liệu NoSQL cho phép lưu trữ dữ liệu không có cấu trúc.",
+            "NoSQL không thích hợp để lưu trữ dữ liệu có cấu trúc.",
+            "NoSQL là một định dạng dữ liệu mới để lưu trữ các tập dữ liệu lớn."
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to the last option
     },
     {
-        question: "Trong ý tưởng về thiết bị di động, điểm hấp dẫn chính của máy tính xách tay khiến nó trở thành thiết bị phổ biến là gì?",
+        question: "Cloudera phát triển công cụ nào ?",
         options: [
-            "Máy tính xách tay có chức năng máy tính để bàn có thể mang đi mọi nơi",
-            "Chi phí của máy tính xách tay thấp hơn máy tính để bàn",
-            "Máy tính xách tay hiệu quả hơn máy tính để bàn",
-            "Không câu trả lời nào trong số này đúng"
+            "HCatalog",
+            "Hbase",
+            "Imphala",
+            "Oozie"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Hbase"
     },
     {
-        question: "Phần cứng của IoT thu thập dữ liệu thông qua việc sử dụng?",
+        question: "Loại nào không phải là CSDL NoSQL ?",
         options: [
-            "Khúc xạ ánh sáng",
-            "Thiết bị Giám sát",
-            "Thiết bị truyền động",
-            "Cảm biến"
+            "SQL Server",
+            "MongoDB",
+            "Cassandra",
+            "Không có"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "SQL Server"
     },
     {
-        question: "Thách thức nào giữa thiết bị IoT với các thiết bị thông minh hoặc thiết bị được kết nối?",
+        question: "Đâu là một kiểu của CSDL NoSQL",
         options: [
-            "Giá trị mà chúng mang lại",
-            "Chi phí đầu tư",
-            "Các cách chúng được sử dụng",
-            "Tất cả các ý đều đúng"
+            "SQL",
+            "Document databases",
+            "JSON",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Document databases"
     },
     {
-        question: "IOT là viết tắt?",
+        question: "Chọn đúng 5 đặc trưng cho Big Data ?",
         options: [
-            "Internet of Things",
-            "Internet of Think",
-            "Internet of Technology",
-            "Intelligent of Technology"
+            "Volume, Velocity, Variety, Veracity, Value",
+            "Volume, Videos, Velocity, Variability, Value",
+            "Volume, Variability, Veracity, Visualization, Value",
+            "Volume, Velocity, Veracity, Visualization, Value"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to the first option
     },
     {
-        question: "Tuyên bố nào phù hợp nhất với Internet of Things?",
+        question: "Velocity (Tốc độ) là đặc trưng nói về?",
         options: [
-            "Internet of Things bao gồm hàng tỷ thiết bị trên khắp thế giới được kết nối với internet",
-            "Internet of Things nhằm mục đích xây dựng phần mềm đáng tin cậy",
-            "Internet of Things nhằm kết nối con người và vạn vật",
-            "Không có tuyên bố nào phù hợp"
+            "Tốc độ gia tăng khối lượng dữ liệu lớn",
+            "Tốc độ cập nhật dữ liệu lớn",
+            "Tốc độ xử lý dữ liệu lớn",
+            "Tốc độ lưu trữ dữ liệu lớn"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Tốc độ xử lý dữ liệu lớn"
     },
     {
-        question: "Các thiết bị IoT phải được cập nhật khi nào?",
+        question: "Variety (Tính đa dạng) là đặc trưng về ?",
         options: [
-            "1 tuần cập nhật 1 lần",
-            "1 ngày cập nhật 1 lần",
-            "1 tháng cập nhật 1 lần",
-            "Phải luôn được cập nhật"
+            "Kiểu dữ liệu thu thập",
+            "Kiểu nội dung dữ liệu",
+            "Nguồn thu thập dữ liệu",
+            "Phương thức xử lý dữ liệu"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Kiểu dữ liệu thu thập"
     },
     {
-        question: "Một thiết bị nhận thông tin từ nhiều điểm trên mạng và truyền nó đến một mạng khác là gì?",
+        question: "Đặc trưng quan trọng nhất của Big Data?",
         options: [
-            "Cảm biến",
-            "Máy với Máy (M2M)",
-            "Dữ liệu lớn",
-            "Thiết bị đeo tay"
+            "Khối lượng",
+            "Tính đa dạng",
+            "Tốc độ",
+            "Tất cả"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
     },
     {
-        question: "Nền tảng Internet of Things?",
+        question: "Đâu là đặc trưng quyết việc triển khai Dữ liệu lớn?",
         options: [
-            "Cho phép các thiết bị và ứng dụng giao tiếp với nhau",
-            "Cung cấp các dịch vụ để truy cập, sử dụng hoặc tham gia vào Internet",
-            "Cho phép các cá nhân và tổ chức làm cho trang web của họ có thể truy cập được",
-            "Không có phát biểu đúng"
+            "Khối lượng",
+            "Giá trị",
+            "Tốc Độ",
+            "Tính đa dạng"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Giá trị"
     },
     {
-        question: "Ai đặt ra thuật ngữ IoT?",
+        question: "Tích hợp dữ liệu là quá trình ?",
         options: [
-            "Kevin Ashton",
-            "IBM",
-            "Ross Ihaka",
-            "Guido van Rossum"
+            "Kết hợp các dữ liệu không đồng nhất từ nhiều nguồn khác nhau",
+            "Sao chép dữ liệu vào CSDL hệ thống để tiến hành phân tích",
+            "Làm sạch các dữ liệu thu thập được từ các hệ thống thành phần",
+            "Tăng giá trị từ các tài nguyên dữ liệu đang lưu trữ phân tán"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to the first option
     },
     {
-        question: "Thuật ngữ IoT được đặt ra vào năm nào?",
+        question: "Thuật ngữ Thuật ngữ Dữ liệu lớn ra đời năm nào?",
         options: [
-            "1999",
+            "1997",
             "2000",
-            "2001",
-            "1998"
+            "1998",
+            "1941"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "1997"
     },
     {
-        question: "Thuật ngữ IIoT là viết tắt của những chữ nào?",
+        question: "Các dạng thức khoa học dữ liệu của Jim Gray?",
         options: [
-            "Industrial Internet of Things",
-            "Index Internet of Technology",
-            "Intense Internet of Things",
-            "Incorporate Internet of Technology"
+            "Thực nghiệm",
+            "Lý thuyết",
+            "Tính toán",
+            "Tất cả các ý"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả các ý"
     },
     {
-        question: "Thành phần nào sau đây không phải là thành phần cơ bản của hệ thống IoT?",
+        question: "Phát biểu nào không phải dạng thức nghiên cứu Khoa học dữ liệu của Jim Gray?",
         options: [
-            "Máy biến áp",
-            "Cảm biến",
-            "Giao diện người dùng",
-            "Kết nối và xử lý dữ liệu"
+            "Khai thác dữ liệu",
+            "Mô phỏng",
+            "Tính toán",
+            "Thực nghiệm"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Mô phỏng"
     },
     {
-        question: "Giao thức MQTT là viết tắt của những chữ nào?",
+        question: "Đâu không phải là phương thức xử lý dữ liệu lớn?",
         options: [
-            "Message Query Telemetry Transport",
-            "MetaQuery Telemetry Transport",
-            "Multiple Query Telemetry Transport",
-            "Multi-Queue Query Telemetry Transport"
+            "Thu thập (acquire)",
+            "Đánh giá (reviews)",
+            "Tổ chức (organize)",
+            "Phân tích (analyze)"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Đánh giá (reviews)"
     },
     {
-        question: "DHCP sử dụng giao thức lớp vận chuyển nào?",
+        question: "RDBMS là gì ?",
         options: [
-            "UDP",
-            "TCP",
-            "RSVP",
-            "DCCP"
+            "Relational Database Management System",
+            "Relat Data Management System",
+            "Relational Database Microsoft System",
+            "Tất cả"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Relational Database Management System"
     },
     {
-        question: "Thiết bị nào không phải thiết bị mạng?",
+        question: "Thị trường Big Data bao gồm:",
         options: [
-            "Traffic analyzer",
-            "Bridge",
-            "Switch",
-            "Router"
+            "Phần cứng",
+            "Phần Mềm",
+            "Tất cả",
+            "Dịch vụ"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Tất cả"
     },
     {
-        question: "Arduino UNO là gì?",
+        question: "Nhược điểm của tích hợp dữ liệu theo phương pháp Tight Coupling",
         options: [
-            "Protocol",
-            "Network",
-            "Software",
-            "Hardware device"
+            "Độ trễ",
+            "Phản hồi truy vấn",
+            "Phụ thuộc vào nguồn dữ liệu",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Độ trễ"
     },
     {
-        question: "Thiết bị IoT nào dùng để thu thập dữ liệu từ thế giới thực?",
+        question: "Nhược điểm của tích hợp dữ liệu theo phương pháp Loose Coupling",
         options: [
-            "Sensors",
-            "Actuators",
-            "Microprocessors",
-            "Microcontrollers"
+            "Tất cả",
+            "Chi phí cao",
+            "Độ trễ",
+            "Phụ thuộc mạng / băng thông"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Phụ thuộc mạng / băng thông"
     },
     {
-        question: "Thành phần của hệ thống IoT thực thi một chương trình là gì?",
+        question: "Công cụ nào hỗ trợ tốt NoSQL?",
         options: [
-            "Cảm biến",
-            "Bộ chuyển đổi kỹ thuật số sang tương tự",
-            "Bộ truyền động",
-            "Bộ vi điều khiển"
+            "SAP Data Services",
+            "Oracle Data Integrator",
+            "SQL Server Integration Services",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
     },
     {
-        question: "Thiết bị nào sau đây không thể được coi là thiết bị IoT?",
+        question: "Công cụ tích hợp dữ liệu Boomi là của?",
         options: [
-            "Đồng hồ thông minh",
-            "Điện thoại Android",
-            "Máy tính xách tay",
-            "Đèn huỳnh quang"
+            "Dell",
+            "IBM",
+            "Microsoft",
+            "SAP"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Dell"
     },
     {
-        question: "Mạng nào sau đây không phải là mạng không dây tầm ngắn?",
+        question: "Công cụ SQL Server Integrator do ai phát triển ?",
         options: [
-            "VPN",
-            "Wifi",
-            "Bluetooth",
-            "Điểm phát sóng"
+            "Oracle",
+            "IBM",
+            "Microsoft",
+            "SAP"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Microsoft"
     },
     {
-        question: "Thông số kỹ thuật quan trọng của cảm biến hình ảnh?",
+        question: "SAP Data Service là công cụ để làm gì ?",
         options: [
-            "Độ phân giải, kích thước điểm ảnh",
-            "Độ nhạy sáng, tốc độ phản hồi",
-            "Độ lệch màu",
-            "Tất cả phương án"
+            "Lưu trữ dữ liệu",
+            "Tích hợp dữ liệu",
+            "Phân tích dữ liệu",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Tích hợp dữ liệu"
     },
     {
-        question: "Phân loại cảm biến hình ảnh dựa trên tiêu chí nào?",
+        question: "Hệ quản trị CSLD DynamoDB là kiểu nào ?",
         options: [
-            "Công nghệ sản xuất chip",
-            "Kích thước và độ phân giải",
-            "Ứng dụng",
-            "Tất cả phương án"
+            "Key value",
+            "Wide Column based",
+            "Document based",
+            "Graph based"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Key value"
     },
     {
-        question: "Trong các thành phần liên kết trong IoT, thành phần nào nằm ở giữa sơ đồ biểu diễn IoT?",
+        question: "Hệ quản trị CSLD MongoDB là kiểu nào ?",
         options: [
-            "Định danh",
-            "Cảm biến",
-            "Kết nối",
-            "Đối tượng"
+            "Document based",
+            "Key value",
+            "Wide Column based",
+            "Graph based"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Document based"
     },
     {
-        question: "Bốn lĩnh vực công nghệ chính luôn gắn liền với sự phát triển xu thế IoT, chọn phương án đúng nhất?",
+        question: "Hệ quản trị CSLD Neo4J là kiểu nào ?",
         options: [
-            "Phần cứng, truyền thông kết nối, phần mềm, ứng dụng",
-            "Phần cứng, phần mềm, thương mại, năng lượng",
-            "Phần cứng, phần mềm, dữ liệu lớn, internet",
-            "Phần mềm, internet, mã hóa, dữ liệu"
+            "Key value",
+            "Wide Column based",
+            "Document based",
+            "Graph based"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Graph based"
     },
     {
-        question: "Giao nào là thức mạng dùng IPv6, cho phép quy định cơ chế đóng gói bản tin và nén header?",
+        question: "Hệ quản trị CSLD IBM Graph là kiểu nào ?",
         options: [
-            "6LoWPAN",
-            "Zigbee",
-            "Bluetooth",
-            "Z-wave"
+            "Key value",
+            "Document based",
+            "Graph based",
+            "Wide Column based"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Graph based"
     },
     {
-        question: "Sóng WiFi truyền và phát tín hiệu ở tần số?",
+        question: "Hệ quản trị CSLD Google Big Table là kiểu nào ?",
         options: [
-            "1.4 GHz hoặc 2.3 GHz",
-            "6GHz hoặc 10GHz",
-            "15GHz hoặc 30GHz",
-            "2.4 GHz hoặc 5 GHz"
+            "Key value",
+            "Wide Column based",
+            "Document based",
+            "Graph based"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Wide Column based"
     },
     {
-        question: "NFC(Near-Field Communications) là công nghệ kết nối không dây trong phạm vi tầm ngắn trong khoảng cách",
+        question: "Đâu không phải là RDBMS ?",
         options: [
-            "4cm",
-            "15cm",
-            "20cm",
-            "25cm"
+            "IBM DB2",
+            "MS SQL Server",
+            "MS Access",
+            "Cassandra"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Cassandra"
     },
     {
-        question: "Đâu là công nghệ không dây sử dụng các bóng đèn LED để truyền dữ liệu với tốc độ nhanh hơn Wifi tới 100 lần?",
+        question: "Loại nào là dữ liệu Bán cấu trúc ?",
         options: [
-            "LIFI",
-            "Sigfox",
-            "Neul",
-            "Thread"
+            "Tất cả",
+            "JSON",
+            "CSV",
+            "XML"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Tất cả"
     },
     {
-        question: "Một cảm biến tốt tuân theo quy tắc nào?",
+        question: "Loại nào là dữ liệu Unstructured ?",
         options: [
-            "Nó nhạy cảm với thuộc tính được đo lường",
-            "Nó không nhạy cảm đến bất kỳ thuộc tính nào khác có thể gặp trong ứng dụng của nó",
-            "Nó không ảnh hưởng đến thuộc tính được đo lường",
-            "Tất cả phương án"
+            "Video",
+            "XML",
+            "Table",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Video"
     },
     {
-        question: "Chip xử lý hình ảnh CCD viết tắt là gì?",
+        question: "Yếu tố nào quyết định để sử dụng NoSQL",
         options: [
-            "Charge Coupled Device",
-            "Computer Controlled Display",
-            "Computer Crimes Divison",
-            "Coarse Control Damper"
+            "Tốc độ gia tăng CSDL",
+            "Tính đa dạng của dữ liệu",
+            "Tốc độ truy cập dữ liệu",
+            "Tất cả"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
     },
     {
-        question: "Chip xử lý hình ảnh CMOS viết tắt là gì?",
+        question: "CSDL nào không phải kiểu Key-Value:",
         options: [
-            "Complementary Metal Oxide Semiconductor",
-            "Complementary Metal Oxide Silicon",
-            "Complementary Metal Oxide Substrate",
-            "Cargo Movement Operating System"
+            "MongoDB",
+            "DynamoDB",
+            "Redis",
+            "Riak"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "MongoDB"
     },
     {
-        question: "Trong Cảm biến lực Loadcell, thành phần Strain gauge là gì?",
+        question: "CSDL nào không phải kiểu Document:",
         options: [
-            "Là một loại điện trở đặc biệt. Được cấp nguồn điện và giá trị điện trở thay đổi khi bị tác động lực lên nó",
-            "Là một thanh kim loại chịu tải có tính đàn hồi, thường là hợp kim nhôm",
-            "Là một hình thanh kim loại vòng tròn cố định trên thiết bị, có khả năng chịu tải tốt chuyên truyền điện và nhiệt",
-            "Không có đáp án đúng"
+            "MongoDB",
+            "CouchDB",
+            "Elasticsearch",
+            "Riak"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Riak"
     },
     {
-        question: "Trong Cảm biến lực Loadcell, thành phần thân loadcell là gì?",
+        question: "CSDL nào không phải kiểu Graph:",
         options: [
-            "Là một thanh kim loại chịu tải có tính đàn hồi, thường là hợp kim nhôm",
-            "Là một loại điện trở đặc biệt. Được cấp nguồn điện và giá trị điện trở thay đổi khi bị tác động lực lên nó",
-            "Là một hình thanh kim loại vòng tròn cố định trên thiết bị, có khả năng chịu tải tốt chuyên truyền điện và nhiệt",
-            "Không có đáp án đúng"
+            "InfoGrid",
+            "Hbase",
+            "InfiniteGraph",
+            "IBM Graph"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Hbase"
     },
     {
-        question: "Cảm biến khói nào sử dụng các chất đồng vị phóng xạ để hoạt động?",
+        question: "CSDL nào không phải kiểu Wide-Column:",
         options: [
-            "Cảm biến khói Ion hóa",
-            "Cảm biến khói quang điện",
-            "Cả (a) và (b) đều đúng",
-            "Cả (a) và (b) đều sai"
+            "Hbase",
+            "Cassandra",
+            "BigTable",
+            "Dex"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Dex"
     },
     {
-        question: "Cảm biến hồng ngoại thụ động có đặc điểm gì?",
+        question: "Ưu điểm của hệ thống HDFS là gì ?",
         options: [
-            "Chỉ phát hiện ra được bức xạ từ các vật thể khác như người, động vật hay nguồn nhiệt, chứ sẽ không phát ra tia hồng ngoại",
-            "Phát hiện mọi vật thể, với khoảng cách giới hạn",
-            "Khi vật thể đến gần với cảm biến, thiết bị sẽ phát ra ánh sáng hồng ngoại từ đèn Led và sẽ phản xạ vào vật thể trở lại mà người nhận có thể nhận thấy được",
-            "Không có đáp án đúng"
+            "Lưu trữ phân tán, xử lý song song, khả năng chịu lỗi cao",
+            "Lưu trữ song song, xử lý phân tán, tính sẵn sàng cao",
+            "Xử lý phân tán song song, khả năng chịu lỗi chấp nhận sai sót",
+            "Tất cả"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to the first option
     },
     {
-        question: "Light Sensor/Photoelectric Sensor là tên gọi của cảm biến nào?",
+        question: "Ưu điểm của DFS là gì ?",
         options: [
-            "Cảm biến chuyển động",
-            "Cảm biến hạt",
-            "Cảm biến rò rỉ",
-            "Cảm biến quang"
+            "Hệ thống lưu trữ song song nên tránh được ảnh hưởng khi một máy chủ hoặc bộ nhớ bị lỗi",
+            "Hệ thống được sao lưu tại Server thứ hai nên đảm bảo việc cung cấp dữ liệu",
+            "Khi một máy chủ hoặc bộ nhớ bị lỗi, hệ thống tệp phân tán vẫn đảm bảo có thể cung cấp dữ liệu ổn định",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 2 // Index 2 corresponds to the third option
     },
     {
-        question: "Đâu là ưu điểm của cảm biến hồng ngoại?",
+        question: "Ưu điểm của công nghệ Cluster",
         options: [
-            "Có độ nhạy cao trong việc xác định vật thể phát ra bức xạ hồng ngoại trong không gian",
-            "Điều kiện nhiệt độ môi trường. Những môi trường có nhiệt độ cao thì cảm biến sẽ hoạt động hiệu quả",
-            "Phạm vi quét cảm biến hồng ngoại không có góc bị chết",
-            "Không bị nhầm lẫn khi phát hiện ra chuyển động"
+            "Tất cả",
+            "Hiệu quả chi phí",
+            "TÍnh sẵn sàng cao",
+            "Khả năng mở rộng linh hoạt"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Tất cả"
     },
     {
-        question: "Đâu là các hãng sản xuất hình ảnh?",
+        question: "Cluster node có mấy loại ?",
         options: [
-            "AUTONICS",
-            "MISUMI",
-            "SUNX",
-            "Tất cả các ý trên"
+            "1",
+            "2",
+            "3",
+            "4"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "2"
     },
     {
-        question: "Công nghệ nhiều lớp cho phép cung cấp, quản lý và tự động hóa đơn giản các thiết bị được kết nối trong IoT?",
+        question: "Nguồn của kiến trúc HDFS trong Hadoop có nguồn gốc là",
         options: [
-            "IoT Platform",
-            "Machine Learning (ML)",
-            "Artificial Intelligence (AI)",
-            "Robotic Process Automation (RPA)"
+            "Hệ thống tệp phân phối của Google",
+            "Hệ thống tệp phân tán của Yahoo",
+            "Hệ thống tệp phân tán của Facebook",
+            "Hệ thống tệp phân tán Azure"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Hệ thống tệp phân phối của Google"
     },
     {
-        question: "Cách thức truyền dữ liệu trong IoT là gì?",
+        question: "Loại dữ liệu mà Hadoop có thể xử lý là",
         options: [
-            "Bluetooth",
-            "Zigbee",
-            "Z-wave",
-            "Tất cả đáp án"
+            "Structred (Có cấu trúc)",
+            "Semi-structured (Bán cấu trúc)",
+            "Unstructured (Không có cấu trúc)",
+            "All of the above (Tất cả những điều trên)"
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to "All of the above (Tất cả những điều trên)"
     },
     {
-        question: "LoRaWAN là gì?",
+        question: "YARN là viết tắt của",
         options: [
-            "Giao thức truyền thông không dây cho IoT",
-            "Ngôn ngữ lập trình cho IoT",
-            "Công nghệ kết nối dữ liệu sản xuất",
-            "Màn hình cảm ứng cho IoT"
+            "Yahoo's another resource name",
+            "Yet another resource negotiator",
+            "Yahoo's archived Resource names",
+            "Yet another resource need."
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Yet another resource negotiator"
     },
     {
-        question: "Mục đích chính của IoT là gì?",
+        question: "Điều nào sau đây không phải là mục tiêu của HDFS?",
         options: [
-            "Kết nối các thiết bị và đối tượng để chia sẻ dữ liệu",
-            "Tạo ra một Internet mới dành riêng cho các thiết bị di động",
-            "Mở rộng sự phổ biến của trò chơi trực tuyến",
-            "Tăng cường an ninh mạng cho doanh nghiệp"
+            "Phát hiện lỗi và khôi phục",
+            "Xử lý tập dữ liệu khổng lồ",
+            "Ngăn chặn việc xóa dữ liệu",
+            "Cung cấp băng thông mạng cao để di chuyển dữ liệu"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Ngăn chặn việc xóa dữ liệu"
     },
     {
-        question: "5G là gì và vai trò của nó trong IoT là gì?",
+        question: "Trong HDFS, các tệp không thể",
         options: [
-            "Một loại cảm biến tiên tiến được sử dụng trong IoT",
-            "Một dạng phân tích dữ liệu trong IoT",
-            "Một mô hình kinh doanh cho các ứng dụng IoT",
-            "Tiêu chuẩn kết nối không dây mới với tốc độ nhanh và độ trễ thấp, hỗ trợ việc triển khai IoT"
+            "Đọc",
+            "Xóa",
+            "Thực thi",
+            "Lưu trữ"
         ],
-        correctAnswer: 3
+        correctAnswer: 2 // Index 2 corresponds to "Thực thi"
     },
     {
-        question: "Giao thức nào làm trung gian cho các gói tin trên lớp ứng dụng với mục đích thay thế các hệ thống truyền tin độc quyền và không tương thích trong IoT?",
+        question: "So với RDBMS, Hadoop",
         options: [
-            "DDS",
-            "MQTT",
-            "CoAP",
-            "AMQP"
+            "Có tính toàn vẹn dữ liệu cao hơn.",
+            "Có giao dịch ACID không",
+            "Thích hợp để đọc và truy vấn nhanh",
+            "Hoạt động tốt hơn trên dữ liệu phi cấu trúc và bán cấu trúc."
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to the last option
     },
     {
-        question: "Hệ thống nhúng được hiểu như thế nào?",
+        question: "Vấn đề chính gặp phải khi đọc và ghi dữ liệu song song từ nhiều đĩa là gì?",
         options: [
-            "Là hệ thống tự trị các nhúng trong môi trường hoặc hệ thống mẹ",
-            "Là hệ thống kết hợp phần mềm và phần cứng để giải quyết các bài toán chuyên dụng",
-            "Là hệ thống có khả năng tự động hóa cao và hoạt động ổn định",
-            "Tất cả các phương án trên"
+            "Xử lý khối lượng lớn dữ liệu nhanh hơn.",
+            "Kết hợp dữ liệu từ nhiều đĩa.",
+            "Phần mềm cần thiết để thực hiện nhiệm vụ này là cực kỳ tốn kém.",
+            "Phần cứng cần thiết để thực hiện tác vụ này là cực kỳ tốn kém."
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Kết hợp dữ liệu từ nhiều đĩa."
     },
     {
-        question: "Hệ thống nhúng được thiết kế để thực hiện nhiệm vụ chuyên dụng nào?",
+        question: "Tính năng định vị dữ liệu trong Hadoop có nghĩa là",
         options: [
-            "Đảm bảo tính an toàn và ứng dụng trong các lĩnh vực cụ thể",
-            "Tối ưu hóa hiệu suất và giảm thiểu chi phí sản xuất",
-            "Tăng cường tính linh hoạt và đa dạng của hệ thống",
-            "Tất cả các phương án trên"
+            "lưu trữ cùng một dữ liệu trên nhiều nút.",
+            "chuyển vị trí dữ liệu từ nút này sang nút khác.",
+            "đồng định vị dữ liệu với các nút tính toán.",
+            "Phân phối dữ liệu trên nhiều nút."
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "đồng định vị dữ liệu với các nút tính toán."
     },
     {
-        question: "Đâu không phải là đặc điểm của hệ thống nhúng?",
+        question: "Các tệp HDFS được thiết kế cho",
         options: [
-            "Tính tương tác và kết nối mạng lưới rộng lớn",
-            "Tính hoạt động ổn định và tự động hóa cao",
-            "Tính linh hoạt và đa dạng trong việc thực hiện các nhiệm vụ",
-            "Tính chuyên dụng, không phải là hệ thống máy tính đa chức năng"
+            "Nhiều người viết và sửa đổi ở các hiệu số tùy ý.",
+            "Chỉ nối vào cuối tệp.",
+            "Chỉ ghi thành tệp một lần.",
+            "Truy cập dữ liệu có độ trễ thấp."
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Chỉ nối vào cuối tệp."
     },
     {
-        question: "IoT được hiểu như thế nào so với hệ thống nhúng?",
+        question: "Hệ thống Apache Hadoop được viết bằng ngôn ngữ nào?",
         options: [
-            "IoT là một công nghệ độc lập, trong khi hệ thống nhúng là một phần của IoT",
-            "IoT là một hệ thống tổng hợp, trong khi hệ thống nhúng là một phần của hệ thống IoT",
-            "IoT là một công nghệ chủ đạo, trong khi hệ thống nhúng chủ yếu tập trung vào việc điều khiển các thiết bị trong một hệ thống cụ thể",
-            "IoT là một mạng lưới các thiết bị kết nối qua Internet, trong khi hệ thống nhúng là một tập hợp con của IoT"
-        ],
-        correctAnswer: 3
-    },
-    {
-        question: "Cảm biến quang loại nào sử dụng trong công nghiệp sản xuất và tự động hóa có khả năng phát hiện vật thể khá xa?",
-        options: [
-            "Cảm biến quang khuếch tán",
-            "Cảm biến quang hồng ngoại",
-            "Cảm biến gương phản xạ",
-            "Tầm xa đều như nhau"
-        ],
-        correctAnswer: 0
-    },
-    {
-        question: "Tổ chức hay ai là người sáng tạo ra Raspberry Pi?",
-        options: [
-            "Eben Upton",
-            "Sinh viên Hernando Barragan",
-            "Bởi hãng Espressif Systems",
-            "Google"
-        ],
-        correctAnswer: 0
-    },
-    {
-        question: "Tổ chức hay ai là người tham gia chính sáng tạo ra Arduino?",
-        options: [
-            "Sinh viên Hernando Barragan",
-            "Eben Upton",
-            "Bởi hãng Espressif Systems",
-            "Google"
-        ],
-        correctAnswer: 0
-    },
-    {
-        question: "Raspberry Pi dùng ngôn ngữ lập trình nào chính thức?",
-        options: [
+            "C ++",
             "Python",
             "Java",
-            "C#",
             "Go"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Java"
     },
     {
-        question: "Raspberry Pi hỗ trợ trên nền tảng và phần mềm nào?",
+        question: "Cái nào không phải là một trong đặc trưng 3Vs của dữ liệu lớn?",
         options: [
-            "Raspbian",
-            "Raspbmc",
-            "OSMC",
-            "Tất cả đáp án đều đúng"
+            "Vận tốc - Velocity",
+            "Tính xác thực - Veracity",
+            "Khối lượng - Volume",
+            "Đa dạng - Variety"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Tính xác thực - Veracity"
     },
     {
-        question: "Arduino đã chính thức được giới thiệu năm?",
+        question: "Điều nào sau đây đúng đối với Hadoop?",
         options: [
-            "2005",
-            "2006",
-            "2007",
-            "2008"
+            "Đây là một khung phân tán.",
+            "Thuật toán chính được sử dụng trong đó là Map Reduce.",
+            "Nó chạy có thể thực thi trên hạ tầng Cloud Computing.",
+            "Tất cả đều đúng"
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả đều đúng"
     },
     {
-        question: "Arduino ra đời ở nước nào?",
+        question: "Loại nào sau đây lưu trữ dữ liệu?",
         options: [
-            "Ý",
-            "Pháp",
-            "Mỹ",
-            "Nga"
+            "Name node",
+            "Data node",
+            "Master node",
+            "Không có"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Data node"
     },
     {
-        question: "Khi làm việc với UPnP, một thiết bị tự gán cái gì của chính nó?",
+        question: "Node nào sau đây quản lý các nút khác?",
         options: [
-            "Địa chỉ IP",
-            "Địa chỉ gửi thư",
-            "Địa chỉ doanh nghiệp",
-            "Địa chỉ UpnP"
+            "Name node",
+            "Data node",
+            "Slave node",
+            "Tất cả"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Name node"
     },
     {
-        question: "Dịch vụ nào đã được sử dụng làm mẫu thử các mối đe dọa của trung tâm điều khiển?",
+        question: "Hadoop xử lý khối lượng lớn dữ liệu như thế nào?",
         options: [
-            "Amazon Echo",
-            "Apple Store",
-            "Google Play",
-            "Tất cả đáp án"
+            "Hadoop sử dụng song song rất nhiều máy. Điều này tối ưu hóa việc xử lý dữ liệu.",
+            "Hadoop được thiết kế đặc biệt để xử lý lượng lớn dữ liệu bằng cách tận dụng phần cứng MPP.",
+            "Hadoop gửi mã đến dữ liệu thay vì gửi dữ liệu đến mã.",
+            "Hadoop sử dụng các kỹ thuật bộ nhớ đệm phức tạp trên NameNode để tăng tốc độ xử lý dữ liệu."
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to the third option
     },
     {
-        question: "Những thách thức lớn của IoT là gì?",
+        question: "MapReduce do công ty nào phát triển ?",
         options: [
-            "An ninh và sự riêng tư",
-            "Không có gì cả",
-            "Chia sẻ thông tin",
-            "Nó rất dễ tạo và thực hiện"
+            "Apache",
+            "Google",
+            "IBM",
+            "Amazon"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Google"
     },
     {
-        question: "Phát biểu đúng nhất về dữ liệu khi sử dụng IoT là gì?",
+        question: "Dịch vụ đám mây nào hỗ trợ tốt cho Big Data ?",
         options: [
-            "Dữ liệu thu được theo thời gian thực",
-            "Dữ liệu thu được hạn chế",
-            "Dữ liệu thu được rất khó quan sát",
-            "Dữ liệu thu được rất khó phân tích"
+            "Amazon AWS",
+            "Google Cloud",
+            "Tất cả",
+            "Microsoft Azure"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Tất cả"
     },
     {
-        question: "Điều nào sau đây là nhược điểm của việc sử dụng IoT?",
+        question: "Nhược điểm khi triển khai Big Data trên nền tảng Cloud Computing là?",
         options: [
-            "Chi phí quá đắt",
-            "Lối sống xấu đi",
-            "Năng suất không tăng",
-            "Quá phụ thuộc vào công nghệ"
+            "Nhiều rủi ro cho hệ thống",
+            "Không có ý đúng",
+            "Tốc độ xử lý không đảm bảo",
+            "Phân tích theo thời gian thực kém"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Không có ý đúng"
     },
     {
-        question: "Ngôn ngữ ưa thích cho phân tích IoT là ngôn ngữ nào?",
+        question: "Mô hình Điện toán đám mây IaaS ?",
         options: [
-            "Python",
-            "HTML",
-            "PHP",
-            "C++"
+            "Cơ sở hạ tầng dưới dạng dịch vụ",
+            "Nền tảng dưới dạng dịch vụ",
+            "Phần mềm dưới dạng dịch vụ",
+            "Internet dưới dạng dịch vụ"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Cơ sở hạ tầng dưới dạng dịch vụ"
     },
     {
-        question: "Thành phần nào tham gia vận hành phần tử cốt lõi của IoT?",
+        question: "Mô hình Điện toán đám mây PaaS ?",
         options: [
-            "SaaS",
-            "PaaS",
-            "IaaS",
-            "Nhà cung cấp dịch vụ IoT"
+            "Cơ sở hạ tầng dưới dạng dịch vụ",
+            "Nền tảng dưới dạng dịch vụ",
+            "Phần mềm dưới dạng dịch vụ",
+            "Internet dưới dạng dịch vụ"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Nền tảng dưới dạng dịch vụ"
     },
     {
-        question: "Lợi thế nào không chính xác đối với IoT?",
+        question: "Mô hình Điện toán đám mây SaaS ?",
         options: [
-            "Bảo mật",
-            "Giảm thiểu lãng phí",
-            "Thu thập dữ liệu nâng cao",
-            "Cải thiện sự tham gia của khách hàng"
+            "Cơ sở hạ tầng dưới dạng dịch vụ",
+            "Nền tảng dưới dạng dịch vụ",
+            "Phần mềm dưới dạng dịch vụ",
+            "Internet dưới dạng dịch vụ"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Phần mềm dưới dạng dịch vụ"
     },
     {
-        question: "Bước cuối cùng của việc truyền dữ liệu đáng tin cậy là gì?",
+        question: "Lợi ích của Cloud Computing với Big Data là ?",
         options: [
-            "Khởi tạo",
-            "Chuyển tiếp tin nhắn",
-            "Phát hiện tin nhắn bị mất",
-            "Phục hồi có chọn lọc"
+            "Triển khai hạ tầng nhanh chóng",
+            "Phân tích theo thời gian thực",
+            "Tối ưu chi phí duy trì hoạt động",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
     },
     {
-        question: "Giao thức được sử dụng để liên kết tất cả các thiết bị trong IoT?",
+        question: "Lợi ích vượt trội của Cloud Computing với Big Data là ?",
         options: [
-            "Mạng",
-            "UDP",
-            "HTTP",
-            "TCP/IP"
+            "Hạn chế đầu tư máy móc",
+            "Phân tích theo thời gian thực",
+            "Tối ưu chi phí duy trì hoạt động",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Phân tích theo thời gian thực"
     },
     {
-        question: "Arduino IDE được viết bằng ngôn ngữ lập trình nào?",
+        question: "Dịch vụ lưu trữ dữ của Amazon – AWS là?",
         options: [
-            "C/C++",
+            "Amazon S3",
+            "Amazon RDS",
+            "Amazon Lambda",
+            "EC2"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Amazon S3"
+    },
+    {
+        question: "Dịch vụ lưu trữ của Microsoft Azure là ?",
+        options: [
+            "Virtual Machines",
+            "Azure Function",
+            "Azure Disk Storage",
+            "Azure Cosmos DB"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Azure Disk Storage"
+    },
+    {
+        question: "Dịch vụ lưu trữ của Google Cloud Platfom là?",
+        options: [
+            "Google Driver",
+            "Goolge Functions",
+            "Google Cloud Storage",
+            "Google Cloud Datastore"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Google Cloud Storage"
+    },
+    {
+        question: "Đám mây AWS cung cấp dịch vụ NoSQL Database",
+        options: [
+            "Amazon RDS",
+            "Amazon EC2",
+            "Amazon DynamoDB",
+            "Amazon Container Service"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Amazon DynamoDB"
+    },
+    {
+        question: "Đám mây Microsoft Azure cung cấp dịch vụ NoSQL Database",
+        options: [
+            "Table Storage",
+            "SQL DB",
+            "Azure Functions",
+            "Cloud Service"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Table Storage"
+    },
+    {
+        question: "Dịch vụ tích hợp dữ liệu trên đám mây trên Google Cloud Platform",
+        options: [
+            "Google Cloud Dataprep",
+            "Google Cloud Data Fusion",
+            "Google Data Catalog",
+            "Google BigQuery"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Google Cloud Data Fusion"
+    },
+    {
+        question: "Dịch vụ thông minh giúp khái phá, làm sạch dữ liệu trên Google Cloud Platform",
+        options: [
+            "Goolge Functions",
+            "Google BigQuery",
+            "Google Cloud Dataprep",
+            "Google Data Catalog"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Google Cloud Dataprep"
+    },
+    {
+        question: "Trên Google Cloud Platform dịch vụ nào quản lý CSDL NoQuery",
+        options: [
+            "Google Cloud Dataprep",
+            "Google Data Catalog",
+            "Google BigQuery",
+            "Cloud Bigtable"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Cloud Bigtable"
+    },
+    {
+        question: "Trên Google Cloud Platform dịch vụ nào quản lý danh mục dữ liệu",
+        options: [
+            "Google Data Catalog",
+            "Google Cloud Dataprep",
+            "Google Data Catalog",
+            "Google BigQuery"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Google Data Catalog"
+    },
+    {
+        question: "Trên Google Cloud Platform dịch vụ phân tích dữ liệu được cung cấp",
+        options: [
+            "Google Data Catalog",
+            "Google BigQuery",
+            "Google Cloud Dataprep",
+            "Goolge Functions"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Google BigQuery"
+    },
+    {
+        question: "Nền tảng Cloudera hỗ trợ hệ CSDL quan hệ nào?",
+        options: [
+            "MySQL",
+            "Oracle",
+            "PostgreSQL",
+            "Tất cả"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
+    },
+    {
+        question: "Hệ CSDL NoSQL trên nền tảng Cloudera là ?",
+        options: [
+            "Apache Accumulo",
+            "DynamoDB",
+            "AppEngine Datastore",
+            "Table Storage"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Apache Accumulo"
+    },
+    {
+        question: "Dich vụ phân tích dữ liệu lớn Cloudera cung cấp là?",
+        options: [
+            "Hadoop",
+            "BigQuery",
+            "Elastic MapReduce",
+            "Không có"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Elastic MapReduce"
+    },
+    {
+        question: "Cloudera Enterprise có thể được triển khai trên đám mây nào",
+        options: [
+            "Google Cloud",
+            "Amazon AWS",
+            "Tất cả",
+            "Microsoft Azure"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Tất cả"
+    },
+    {
+        question: "Công cụ trên Google Cloud Platform chuyển đổi dữ liệu hỗ trợ quyết định",
+        options: [
+            "Google Cloud",
+            "Google Data Catalog",
+            "Google Data Studio",
+            "Goolge Functions"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Google Data Studio"
+    },
+    {
+        question: "Mô hình chính dành cho Điện toán đám mây ?",
+        options: [
+            "Cơ sở hạ tầng dưới dạng dịch vụ (IaaS)",
+            "Tất cả",
+            "Nền tảng dưới dạng dịch vụ (PaaS)",
+            "Phần mềm dưới dạng dịch vụ (SaaS)"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Tất cả"
+    },
+    {
+        question: "Kiểu phân tích dữ liệu nào cho ta biết điều gì đã xảy ra ?",
+        options: [
+            "Descriptive Analysis",
+            "Diagnostic Analysis",
+            "Predictive Analysis",
+            "Prescriptive Analysis"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Descriptive Analysis"
+    },
+    {
+        question: "Kiểu phân tích dữ liệu nào chuẩn đoán lý do cho kết quả ?",
+        options: [
+            "Descriptive Analysis",
+            "Diagnostic Analysis",
+            "Predictive Analysis",
+            "Prescriptive Analysis"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Diagnostic Analysis"
+    },
+    {
+        question: "Kiểu phân tích dữ liệu nào dự đoán điều sẽ xảy ra ?",
+        options: [
+            "Descriptive Analysis",
+            "Diagnostic Analysis",
+            "Predictive Analysis",
+            "Prescriptive Analysis"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Predictive Analysis"
+    },
+    {
+        question: "Kiểu phân tích nào để hỗ trợ đưa ra quyết định ?",
+        options: [
+            "Descriptive Analysis",
+            "Diagnostic Analysis",
+            "Predictive Analysis",
+            "Prescriptive Analysis"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Prescriptive Analysis"
+    },
+    {
+        question: "Loại phân tích dữ liệu nào kết quả thu được cho ta biết điều gì đã xảy ra ?",
+        options: [
+            "Phân tích mô tả",
+            "Phân tích chuẩn đoán",
+            "Phân tích dự đoán",
+            "Phân tích đề xuất"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Phân tích mô tả"
+    },
+    {
+        question: "Loại phân tích dữ liệu nào kết quả thu được cho ta biết tại sao điều đó xảy ra ?",
+        options: [
+            "Phân tích mô tả",
+            "Phân tích chuẩn đoán",
+            "Phân tích dự đoán",
+            "Phân tích đề xuất"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Phân tích chuẩn đoán"
+    },
+    {
+        question: "Loại phân tích dữ liệu nào kết quả thu được cho ta biết điều gì sẽ xảy ra ?",
+        options: [
+            "Phân tích mô tả",
+            "Phân tích chuẩn đoán",
+            "Phân tích dự đoán",
+            "Phân tích đề xuất"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Phân tích dự đoán"
+    },
+    {
+        question: "Loại phân tích dữ liệu nào kết quả thu được cho ta biết làm thể nào để nó xảy ra",
+        options: [
+            "Phân tích mô tả",
+            "Phân tích chuẩn đoán",
+            "Phân tích dự đoán",
+            "Phân tích đề xuất"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Phân tích đề xuất"
+    },
+    {
+        question: "Mục tiêu đúng nhất của phân tích dữ liệu lớn là gì ?",
+        options: [
+            "Biến dữ liệu thành thông tin chi tiết hữu ích",
+            "Sắp xếp dữ liệu có ích để sử dụng",
+            "Tạo ra các dữ liệu phù hợp nhất với hệ thống",
+            "Xây dựng hệ thống để quản lý dữ liệu lớn"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Biến dữ liệu thành thông tin chi tiết hữu ích"
+    },
+    {
+        question: "Hoạt động của Map Reduce bao gồm:",
+        options: [
+            "Trộn & sắp xếp - Map - Reduce",
+            "Map - Trộn & sắp xếp – Reduce",
+            "Reduce - Map - Trộn & sắp xếp",
+            "Sắp xếp - Trộn & Map – Reduce"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Map - Trộn & sắp xếp – Reduce"
+    },
+    {
+        question: "Phân tích chuẩn đoán sử dụng kỹ thuật nào ?",
+        options: [
+            "Lấy mẫu dữ liệu",
+            "Tương quan phân bổ",
+            "Thu tập dữ liệu",
+            "Khai phá dữ liệu"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Khai phá dữ liệu"
+    },
+    {
+        question: "Phân tích chuẩn đoán sử dụng kỹ thuật nào ?",
+        options: [
+            "Lấy mẫu mô tả",
+            "Tương quan phân bổ",
+            "Khôi phục dữ liệu",
+            "Thu tập dữ liệu"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Khôi phục dữ liệu"
+    },
+    {
+        question: "Phân tích mô tả không phù hợp sử dụng để ?",
+        options: [
+            "Xây dựng các báo cáo",
+            "Lập bảng số liệu truyền thông",
+            "Mô hình hoá dữ liệu quá khứ",
+            "Phân tích tương quan"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Phân tích tương quan"
+    },
+    {
+        question: "Đâu là phân tích chuẩn đoán ?",
+        options: [
+            "Mô tả tương quan dữ liệu",
+            "Cung cấp cái nhinh sâu sắc về vấn đề",
+            "Phân tích sự bất thường từ dữ liệu lưu trữ",
+            "Mô hình hoá dữ liệu theo điều kiện"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Cung cấp cái nhinh sâu sắc về vấn đề"
+    },
+    {
+        question: "Trong MapReduce loại nào sau đây theo dõi quá trình tiêu thụ tài nguyên trên Cluster Node?",
+        options: [
+            "Name node",
+            "Master node",
+            "Single Master",
+            "Slave node"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Master node"
+    },
+    {
+        question: "Trong MapReduce loại nào sau đây thực thi các tác vụ và cung cấp thông tin trạng thái tác vụ?",
+        options: [
+            "Name node",
+            "Master node",
+            "Single Master",
+            "Slave node"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Slave node"
+    },
+    {
+        question: "Trong MapReduce loại nào sau đây được cung cấp task-status?",
+        options: [
+            "Name node",
+            "JobTracker",
+            "Single Master",
+            "Slave node"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "JobTracker"
+    },
+    {
+        question: "Mô hình MapReduce có thể chạy trên số lượng máy chủ?",
+        options: [
+            "Vài máy",
+            "Hàng nghìn máy",
+            "Hàng trăm máy",
+            "Một máy chủ Master"
+        ],
+        correctAnswer: 1 // Index 1 corresponds to "Hàng nghìn máy"
+    },
+    {
+        question: "Mô hình MapReduce thuộc lớp nào ?",
+        options: [
+            "Lớp lưu trữ dữ liệu",
+            "Lớp thu thập dữ liệu",
+            "Lớp xử lý dữ liệu",
+            "Lớp phân tích dữ liệu"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Lớp xử lý dữ liệu"
+    },
+    {
+        question: "Lợi ích từ Phân tích dữ liệu lớn là ?",
+        options: [
+            "Tất cả",
+            "Ra quyết định nhanh hơn, tốt hơn",
+            "Giảm chi phí và tăng hiệu quả hoạt động",
+            "Cải tiến theo định hướng dữ liệu cho thị trường"
+        ],
+        correctAnswer: 0 // Index 0 corresponds to "Tất cả"
+    },
+    {
+        question: "Các ứng dụng phân tích dữ liệu lớn cho Lĩnh vực bán lẻ",
+        options: [
+            "Dự đoán hành vi mua sắm của khách hàng",
+            "Xây dựng mô hình chi tiêu cho từng khách hàng",
+            "Phân tích hành trình của khách hàng",
+            "Tất cả"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
+    },
+    {
+        question: "Ứng dụng phân tích dữ liệu lớn hỗ trợ ngành Y tế",
+        options: [
+            "Tăng việc khai thác tối ưu hoá máy móc",
+            "Tăng doanh thu từ phần mềm y tế",
+            "Tăng tinh chính xác của chẩn đoán",
+            "Tất cả"
+        ],
+        correctAnswer: 2 // Index 2 corresponds to "Tăng tinh chính xác của chẩn đoán"
+    },
+    {
+        question: "Trong kiến trúc Apache Hadoop MapReduce là",
+        options: [
+            "Lớp lưu trữ",
+            "Lớp truyền tải",
+            "Lớp quản lý tài nguyên",
+            "Lớp xử lý dữ liệu"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Lớp xử lý dữ liệu"
+    },
+    {
+        question: "Kiến trúc Hadoop hỗ trợ những ngôn ngữ nào",
+        options: [
             "Java",
-            "JavaScript",
+            "Tất cả",
+            "C++",
             "Python"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Tất cả"
     },
     {
-        question: "Mạng IoT có phạm vi ngắn nhất là mạng nào trong các mạng sau?",
+        question: "Spark được Apache Software Foundation phát triển từ năm nào",
         options: [
-            "SigFox",
-            "LPWAN",
-            "Short network",
-            "Short-range wireless network"
+            "1993",
+            "2013",
+            "2009",
+            "2007"
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "2013"
     },
     {
-        question: "Giao thức nhẹ (lightweight protocol) là giao thức nào trong số các giao thức sau?",
+        question: "Apache Kafka là công cụ hỗ trợ ?",
         options: [
-            "IP",
-            "CoAP",
-            "HTTP",
-            "MQTT"
+            "Xử lý phân tán",
+            "Lưu trữ phân tán",
+            "Hệ quản trị CSDL",
+            "Thu tập dữ liệu"
         ],
-        correctAnswer: 3
+        correctAnswer: 0 // Index 0 corresponds to "Xử lý phân tán"
     },
     {
-        question: "Công nghệ nào sau đây không phải là công nghệ ở lớp liên kết dữ liệu?",
+        question: "Apache Storm là công cụ hỗ trợ?",
         options: [
-            "HTTP",
-            "UART",
-            "wifi",
-            "Bluetooth"
+            "Xử lý phân tán",
+            "Lưu trữ phân tán",
+            "Phân tích dữ liệu",
+            "Thu tập dữ liệu"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Phân tích dữ liệu"
     },
     {
-        question: "MQTT dựa trên kiến trúc nào?",
+        question: "Đâu không phải là chế độ hoạt động của Hadoop?",
         options: [
-            "Publish-subscribe architecture",
-            "Client-server architecture",
-            "Peer-to-peer architecture",
-            "Request-responde architecture"
+            "Chế độ phân phối giả",
+            "Chế độ phân phối toàn cầu",
+            "Chế độ độc lập",
+            "Chế độ phân phối hoàn toàn"
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Chế độ phân phối toàn cầu"
     },
     {
-        question: "Thuật ngữ LPWAN là viết tắt của những chữ nào?",
+        question: "Các tệp HDFS được thiết kế cho",
         options: [
-            "Low Power Wide Area Network",
-            "Low Protocol Wide Area Network",
-            "Long Power Wide Area Network",
-            "Long Protocol Wide Area Network"
+            "Nhiều người viết và sửa đổi ở các hiệu số tùy ý.",
+            "Chỉ nối vào cuối tệp",
+            "Chỉ ghi thành tệp một lần.",
+            "Truy cập dữ liệu có độ trễ thấp."
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Chỉ nối vào cuối tệp"
     },
     {
-        question: "Mô hình mạng sử dụng cho ZigBee Smart Energy?",
+        question: "Tính năng định vị dữ liệu trong Hadoop có nghĩa là",
         options: [
-            "Star Topology",
-            "Bus Topology",
-            "Ring Topology",
-            "Không cần mô hình"
+            "Lưu trữ cùng một dữ liệu trên nhiều nút.",
+            "Chuyển vị trí dữ liệu từ nút này sang nút khác.",
+            "Đồng định vị dữ liệu với các nút tính toán.",
+            "Phân phối dữ liệu trên nhiều nút."
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Đồng định vị dữ liệu với các nút tính toán."
     },
     {
-        question: "Công nghệ cảm biến hình ảnh nào cần ít điện năng hơn?",
+        question: "Khó khăn khi đọc và ghi dữ liệu song song từ nhiều nguồn là gì?",
         options: [
-            "CMOS",
-            "CCD",
-            "ADC",
-            "Nikon Coolpix"
+            "Xử lý khối lượng lớn dữ liệu nhanh hơn.",
+            "Kết hợp dữ liệu từ nhiều nguồn.",
+            "Phần mềm cần thiết để thực hiện nhiệm vụ này là cực kỳ tốn kém.",
+            "Phần cứng cần thiết để thực hiện tác vụ này là cực kỳ tốn kém."
         ],
-        correctAnswer: 0
+        correctAnswer: 1 // Index 1 corresponds to "Kết hợp dữ liệu từ nhiều nguồn."
     },
     {
-        question: "Arduino Uno R3 dùng vi điều khiển gì?",
+        question: "So với RDBMS, Hadoop",
         options: [
-            "Atmega 328",
-            "Quad core Cortex-A72",
-            "Intel® Atom ™ SoC",
-            "Tensilica Diamond Standard 106Micro"
+            "Có tính toàn vẹn dữ liệu cao hơn.",
+            "Có giao dịch ACID không",
+            "Nó thích hợp để đọc và viết nhiều lần",
+            "Hoạt động tốt hơn trên dữ liệu phi cấu trúc và bán cấu trúc."
         ],
-        correctAnswer: 0
+        correctAnswer: 3 // Index 3 corresponds to the last option
     },
     {
-        question: "Raspberry Pi 4 Model B dùng vi điều khiển gì?",
+        question: "Yếu tố giới hạn hiện tại đối với kích thước của một cụm hadoop là",
         options: [
-            "Quad core Cortex-A72",
-            "Atmega 328",
-            "Intel® Atom ™ SoC",
-            "Tensilica Diamond Standard 106Micro"
+            "Nhiệt lượng dư thừa tạo ra trong trung tâm dữ liệu",
+            "Giới hạn trên của băng thông mạng",
+            "Giới hạn trên của RAM trong NameNode",
+            "4000 datanode"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Giới hạn trên của RAM trong NameNode"
     },
     {
-        question: "Cổng bảo mật tiêu chuẩn của MQTT là cổng nào?",
+        question: "Trong HDFS, các tệp không thể",
         options: [
-            "8000",
-            "8888",
-            "1883",
-            "8883"
+            "Đọc",
+            "Xoá",
+            "Thực thi",
+            "Lưu trữ"
         ],
-        correctAnswer: 3
+        correctAnswer: 2 // Index 2 corresponds to "Thực thi"
     },
     {
-        question: "Phạm vi của z-wave có khoảng cách là bao nhiêu mét?",
+        question: "Điều nào sau đây không phải là mục tiêu của HDFS?",
         options: [
-            "30-100m",
-            "300-1000 m",
-            "<10m",
-            "100-1000m"
+            "Phát hiện lỗi và khôi phục",
+            "Xử lý tập dữ liệu khổng lồ",
+            "Ngăn chặn việc xóa dữ liệu",
+            "Cung cấp băng thông mạng cao để di chuyển dữ liệu"
         ],
-        correctAnswer: 0
+        correctAnswer: 2 // Index 2 corresponds to "Ngăn chặn việc xóa dữ liệu"
     },
     {
-        question: "Tần số của z-wave là bao nhiêu GHz?",
+        question: "YARN là viết tắt của",
         options: [
-            "708,49 GHz",
-            "888,42 GHz",
-            "928,49 GHz",
-            "908,42GHz"
+            "Yahoo's another resource name",
+            "Yet another resource negotiator",
+            "Yahoo's archived Resource names",
+            "Yet another resource need."
         ],
-        correctAnswer: 3
+        correctAnswer: 1 // Index 1 corresponds to "Yet another resource negotiator"
     },
     {
-        question: "I2C là viết tắt của những chữ nào?",
+        question: "Kiến trúc HDFS trong Hadoop có nguồn gốc là",
         options: [
-            "Inter-Integrated Communication",
-            "Internet Integrated Communication",
-            "Integrated Internet Communication",
-            "Internet Instigate Communication"
+            "Hệ thống tệp phân phối của Google",
+            "Hệ thống tệp phân tán của Yahoo",
+            "Hệ thống tệp phân tán của Facebook",
+            "Hệ thống tệp phân tán của Azure"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Hệ thống tệp phân phối của Google"
     },
     {
-        question: "Thiết bị nào không phải thiết bị truyền động (actuator) trong IoT?",
+        question: "HDFS là viết tắt của",
         options: [
-            "Stepper motor",
-            "Celling fan",
-            "RGB LED",
-            "Raspberry Pi"
+            "Hệ thống tệp phân tán cao. (Highly distributed file system.)",
+            "Hệ thống tệp được hướng dẫn Hadoop. (Hadoop directed file system)",
+            "Hệ tệp phân tán cao. (Highly distributed file shell)",
+            "Hệ thống tệp phân tán Hadoop. (Hadoop distributed file system)"
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to "Hệ thống tệp phân tán Hadoop. (Hadoop distributed file system)"
     },
     {
-        question: "Giao thức nào không tồn tại trong tầng liên kết dữ liệu (data link)?",
+        question: "Thành phân nào không thuộc Hadoop?",
         options: [
-            "ZigBee Smart Energy",
-            "LoRaWAN",
-            "WirelessHART",
-            "Secure MQTT"
+            "YARN",
+            "HDFS",
+            "MapReduce",
+            "GFS"
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to "GFS"
     },
     {
-        question: "NFC có thể truyền dữ liệu ở tốc độ nào?",
+        question: "Thành phần chính của hệ thống Hadoop là ?",
         options: [
-            "424 Kb/giây",
-            "848 Kb/giây",
-            "216 Kb/giây",
-            "Tất cả các phương án trên"
+            "MapReduce",
+            "HDFS",
+            "YARN",
+            "Tất cả"
         ],
-        correctAnswer: 3
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
     },
     {
-        question: "Phạm vi của Bluetooth 4.2?",
+        question: "Apache Kafka là nền tảng mở được phát triển bởi ?",
         options: [
-            "50m-150m",
-            "1m-20m",
-            "20m-40m",
-            "300m-500m"
+            "Linkedln",
+            "Facebook",
+            "Google",
+            "IBM"
         ],
-        correctAnswer: 0
+        correctAnswer: 0 // Index 0 corresponds to "Linkedln"
+    },
+    {
+        question: "Công cụ nào hỗ trợ tích hợp dữ liệu",
+        options: [
+            "Dell Boomi",
+            "Snaplogic",
+            "SAP Data Services",
+            "Tất cả"
+        ],
+        correctAnswer: 3 // Index 3 corresponds to "Tất cả"
     }
 ];
 
-export default questions;
+// Export the questions array
+window.questions = questions;
